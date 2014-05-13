@@ -20,7 +20,7 @@ Features
 
 using ``kids.txt``:
 
-- You'll have a ``indent`` command in python 2.7. I now it was included in python 3.3.
+- You'll have a ``indent`` command in python 2.7. I know it was included in python 3.3.
 - You'll be able to ``wrap`` text keeping the paragraph separated.
 - have a ``ucfirst`` function.
 
