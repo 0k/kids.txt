@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 
+##
+## You can download latest version of this file:
+##  $ wget https://gist.github.com/vaab/e0eae9607ae806b662d4/raw -O setup.py
+##  $ chmod +x setup.py
+##
+## This setup.py is meant to be run along with ``./autogen.sh`` that
+## you can also find here: https://gist.github.com/vaab/9118087/raw
+##
+
 try:
     from setuptools import setup
 except ImportError:
