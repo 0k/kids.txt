@@ -6,8 +6,6 @@
 ##  $ chmod +x autogen.sh
 ##
 
-## list of files where %%version*%% macros are to be replaced:
-[ -z "$FILES" ] && FILES="setup.cfg setup.py CHANGELOG.rst"
 
 ##
 ## Functions
@@ -138,6 +136,9 @@ else
     echo "'./package' file is missing."
     exit 1
 fi
+
+## list of files where %%version*%% macros are to be replaced:
+[ -z "$FILES" ] && FILES="setup.cfg setup.py CHANGELOG.rst"
 
 [ -z "$NAME" ] && die "No \$NAME was defined in './package'."
 
