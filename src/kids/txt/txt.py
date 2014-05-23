@@ -24,7 +24,7 @@ def indent(text, prefix="  ", first=None):
 
 
     """
-    if first:
+    if first is not None:
         first_line = text.split("\n")[0]
         rest = '\n'.join(text.split("\n")[1:])
         return '\n'.join([first + first_line,
@@ -59,3 +59,11 @@ def dedent_pep8_docs(doc):
 
 def ucfirst(msg):
     return msg[0].upper() + msg[1:]
+
+## Provided in textwrap.shorten in python 3
+def shorten(s, l):
+    if len(s) > l:
+        return s[:l - 2] + ".."
+    return s
+
+truncate = shorten
