@@ -30,7 +30,7 @@ Features
 
 using ``kids.txt``:
 
-- You'll have a ``indent`` command also in python 2.
+- You'll have a ``indent`` / ``dedent`` command also in python 2.
 - You'll be able to ``wrap`` text keeping the paragraph separated.
 
 
@@ -75,6 +75,24 @@ You can easily indent text with::
     | This is first line.
     | This is second line
     |
+
+
+dedent
+------
+
+You can also dedent text::
+
+    >>> print(txt.dedent(
+    ...    '''This is a doc
+    ...
+    ...       with fancy indentation, that should just work also.
+    ...       Without removing too much neither as:
+    ...          - more space.'''))
+    This is a doc
+    <BLANKLINE>
+    with fancy indentation, that should just work also.
+    Without removing too much neither as:
+       - more space.
 
 
 paragrap_wrap

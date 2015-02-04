@@ -7,6 +7,40 @@ import textwrap
 import re
 
 
+def dedent(txt):
+    """Dedent a txt, tolerating first line not indented.
+
+        >>> from __future__ import print_function
+
+    Various issues should be tackled:
+
+        >>> print(dedent(
+        ...    '''This is a doc
+        ...
+        ...       with fancy indentation, that should just work also.
+        ...       Without removing too much neither as:
+        ...          - more space.'''))
+        This is a doc
+        <BLANKLINE>
+        with fancy indentation, that should just work also.
+        Without removing too much neither as:
+           - more space.
+
+    Note that the first line doesn't have indentation and neither the
+    second (which is empty).
+
+    Of course, ``dedent`` should not fail on empty string neither:
+
+        >>> dedent("")
+        ''
+
+    """
+    if "\n" not in txt:
+        return txt.lstrip()
+    first_line, end = txt.split('\n', 1)
+    return "%s\n%s" % (first_line, textwrap.dedent(end))
+
+
 ## Note that a quite equivalent function was added to textwrap in python 3.3
 def indent(text, prefix="  ", first=None):
     """Return text string indented with the given prefix
