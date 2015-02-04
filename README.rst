@@ -33,6 +33,7 @@ using ``kids.txt``:
 - You'll have a ``indent`` / ``dedent`` / ``shorten`` command also in python 2.
 - You'll be able to ``wrap`` text keeping the paragraph separated.
 - minor helper like ``ucfirst`` function.
+- produce unified diffs between 2 strings easily with ``udiff``.
 
 
 Installation
@@ -132,6 +133,22 @@ replace the last 2 characters by a '..' to indicate truncation::
     'fool'
     >>> txt.shorten('supercalifragilisticexpialidocious', l=5)
     'sup..'
+
+
+udiff
+-----
+
+Shows the unified diff between to text::
+
+    >>> print(txt.udiff('a\n\nc', 'b\n\nc'))
+    --- None
+    +++ None
+    @@ -1,3 +1,3 @@
+    -a
+    +b
+    <BLANKLINE>
+     c
+    <BLANKLINE>
 
 
 Contributing
