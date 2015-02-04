@@ -30,8 +30,9 @@ Features
 
 using ``kids.txt``:
 
-- You'll have a ``indent`` / ``dedent`` command also in python 2.
+- You'll have a ``indent`` / ``dedent`` / ``shorten`` command also in python 2.
 - You'll be able to ``wrap`` text keeping the paragraph separated.
+- minor helper like ``ucfirst`` function.
 
 
 Installation
@@ -109,6 +110,28 @@ Wrap paragraph separately::
     This is second paragraph
 
     Notice that that each paragraph has been wrapped separately.
+
+
+ucfirst
+-------
+
+This function will return the given string with the first character forced to
+uppercase::
+
+    >>> txt.ucfirst('foo')
+    'Foo'
+
+
+shorten
+-------
+
+This function will truncate the given string to the given length, if necessary. It'll
+replace the last 2 characters by a '..' to indicate truncation::
+
+    >>> txt.shorten('fool', l=5)
+    'fool'
+    >>> txt.shorten('supercalifragilisticexpialidocious', l=5)
+    'sup..'
 
 
 Contributing

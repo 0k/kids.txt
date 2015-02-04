@@ -88,3 +88,19 @@ def paragraph_wrap(text, regexp="\n\n"):
     regexp = re.compile(regexp, re.MULTILINE)
     return "\n".join("\n".join(textwrap.wrap(paragraph.strip()))
                      for paragraph in regexp.split(text)).strip()
+
+
+def ucfirst(msg):
+    """Return altered msg where only first letter was forced to uppercase."""
+    return msg[0].upper() + msg[1:]
+
+
+## Provided in textwrap.shorten in python 3
+def shorten(s, l):
+    """Return given string truncated to given length."""
+    if len(s) > l:
+        return s[:l - 2] + ".."
+    return s
+
+
+truncate = shorten
