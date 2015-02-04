@@ -47,18 +47,22 @@ def indent(text, prefix="  ", first=None):
 
     >>> string = 'This is first line.\\nThis is second line\\n'
 
-    >>> print(indent(string, prefix="| "))  # doctest: +NORMALIZE_WHITESPACE
+    >>> print(indent(string, prefix="| "))
     | This is first line.
     | This is second line
     |
 
-    >>> print(indent(string, first="- "))  # doctest: +NORMALIZE_WHITESPACE
+    >>> print(indent(string, first="- "))
     - This is first line.
       This is second line
 
+    >>> print(indent(string, first=""))  ## doctest: -NORMALIZE_WHITESPACE
+    This is first line.
+      This is second line
+    <BLANKLINE>
 
     """
-    if first:
+    if first is not None:
         first_line = text.split("\n")[0]
         rest = '\n'.join(text.split("\n")[1:])
         return '\n'.join([first + first_line,
