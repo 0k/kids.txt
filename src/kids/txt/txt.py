@@ -95,12 +95,45 @@ def ucfirst(msg):
     return msg[0].upper() + msg[1:]
 
 
+
 ## Provided in textwrap.shorten in python 3
-def shorten(s, l):
-    """Return given string truncated to given length."""
-    if len(s) > l:
-        return s[:l - 2] + ".."
-    return s
+def shorten(s, l, index=-1, token="..", token_length=None):
+    """Return given string truncated to given length.
+
+    >>> shorten('bonjour', 10)
+    'bonjour'
+
+    >>> shorten('bonjour tout le monde', 10)
+    'bonjour ..'
+
+    >>> shorten('bonjour tout le monde', 10, index=4)
+    'bonj..onde'
+
+    >>> shorten('bonjour tout le monde', 10, index=4, token="/../")
+    'bonj/../de'
+
+    >>> shorten('bonjour tout le monde', 10, index=4,
+    ...     token="<span class='more'>..</span>",
+    ...     token_length=2)
+    "bonj<span class='more'>..</span>onde"
+
+    """
+    ltoken = token_length if token_length else len(token)
+    ls = len(s)
+    if ls <= l:
+        return s
+    to_del = ls - l + ltoken
+    ## get start
+    start = index if index >= 0 else ls - l
+    end = start + to_del
+    if end > ls:
+        ## push start to the left
+        start = start - (end - ls)
+        if start < 0:
+            start = 0
+        end = ls
+
+    return s[:start] + token + s[end:]
 
 
 truncate = shorten
